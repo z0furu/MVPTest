@@ -1,4 +1,10 @@
 <resources>
     <string name="app_name">MVPLogin</string>
+
     <string name="login">Login</string>
+    <string name="login_account">帳號</string>
+    <string name="login_password">密碼</string>
+    <string name="login_btn">登入</string>
+    <string name="login_account_not_empty">帳號不能為空</string>
+    <string name="login_password_not_empty">密碼不能為空</string>
 </resources>

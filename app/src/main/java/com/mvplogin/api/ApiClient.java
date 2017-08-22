@@ -3,6 +3,10 @@ package com.mvplogin.api;
 import android.util.Base64;
 import android.util.Log;
 
+import com.google.gson.Gson;
+import com.mvplogin.OnLoginListener;
+import com.mvplogin.module.LoginUser;
+
 import java.io.IOException;
 
 import okhttp3.Response;
@@ -37,22 +41,37 @@ public class ApiClient {
         private static final ApiClient INSTANCE = new ApiClient();
     }
 
+    //----------------------------------Listener-----------------------------------------//
+    private OnLoginListener onLoginListener;
+
+    public void setOnLoginListener(OnLoginListener onLoginListener) {
+        this.onLoginListener = onLoginListener;
+    }
+
+    //----------------------------------Listener-----------------------------------------//
+
     public void login(String username, String password) {
         String auth = new String(Base64.encode((username + ":" + password).getBytes(), Base64.NO_WRAP));
         Call<ResponseBody> responseCall = loginApi.login("Basic "+ auth);
         responseCall.enqueue(new Callback<ResponseBody>() {
             @Override
             public void onResponse(Call<ResponseBody> call, retrofit2.Response<ResponseBody> response) {
-                Log.i(TAG, "onResponse: " + response.code());
-                Log.i(TAG, "onResponse: " + response.message());
+               ResponsePrint.print(call, response);
+               if (onLoginListener != null) {
+                   if (response.code() == HttpCode.SUCCESS) {
+                       onLoginListener.onSuccess(ParserResponse.formatGson(response, LoginUser.class));
+                   } else {
+                       onLoginListener.onError(response.message());
+                   }
+               }
             }
 
             @Override
             public void onFailure(Call<ResponseBody> call, Throwable t) {
-                Log.i(TAG, "onFailure: " + t.toString());
+                if (onLoginListener != null) {
+                    onLoginListener.onError(t.getMessage());
+                }
             }
         });
     }
-
-
 }

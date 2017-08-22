@@ -27,6 +27,8 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.0'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.0'
     implementation 'com.squareup.retrofit2:retrofit:2.3.0'
-    implementation 'com.squareup.retrofit2:converter-gson:2.2.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
     implementation 'com.android.support:customtabs:26.0.1'
+    implementation 'com.android.support:design:26.0.1'
+    implementation 'com.github.GrenderG:Toasty:1.2.5'
 }
