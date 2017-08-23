@@ -23,16 +23,13 @@ public abstract class BaseActivity extends AppCompatActivity{
 
         bindView();
         viewClickListener();
-
-        apiClient = ApiClient.getInstance();
-
     }
 
-    abstract int getResourceID();
+    protected abstract int getResourceID();
 
-    abstract void bindView();
+    protected abstract void bindView();
 
-    abstract void viewClickListener();
+    protected abstract void viewClickListener();
 
     protected String edtToString(TextInputEditText editText) {
         if (editText == null) return "";
