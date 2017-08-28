@@ -2,10 +2,15 @@ package com.mvplogin.api;
 
 import android.util.Base64;
 
+import com.ihsanbal.logging.Level;
+import com.ihsanbal.logging.LoggingInterceptor;
+import com.mvplogin.BuildConfig;
 import com.mvplogin.listener.OnLoginListener;
 import com.mvplogin.module.LoginUser;
 
+import okhttp3.OkHttpClient;
 import okhttp3.ResponseBody;
+import okhttp3.internal.platform.Platform;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Retrofit;
@@ -21,8 +26,21 @@ public class ApiClient {
     private LoginApi loginApi;
 
     private ApiClient() {
+
+        OkHttpClient.Builder client = new OkHttpClient.Builder();
+        client.addInterceptor(new LoggingInterceptor.Builder()
+        .loggable(BuildConfig.DEBUG)
+        .setLevel(Level.BASIC)
+        .log(Platform.INFO)
+        .request("送出")
+        .response("回應")
+        .addHeader("Version", BuildConfig.VERSION_NAME).build());
+
+        OkHttpClient okHttpClient = client.build();
+
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://api.github.com/")
+                .client(okHttpClient)
                 .build();
         loginApi = retrofit.create(LoginApi.class);
     }

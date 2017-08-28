@@ -17,6 +17,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
 }
 
 dependencies {
@@ -31,4 +32,7 @@ dependencies {
     implementation 'com.android.support:customtabs:26.0.1'
     implementation 'com.android.support:design:26.0.1'
     implementation 'com.github.GrenderG:Toasty:1.2.5'
+    implementation('com.github.ihsanbal:LoggingInterceptor:2.0.2') {
+        exclude group: 'org.json', module: 'json'
+    }
 }
