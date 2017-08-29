@@ -1,4 +1,4 @@
-package com.mvplogin.module;
+package com.mvplogin.model;
 
 /**
  * 功能

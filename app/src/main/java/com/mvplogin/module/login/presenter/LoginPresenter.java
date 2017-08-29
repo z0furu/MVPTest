@@ -1,21 +1,21 @@
-package com.mvplogin.presenter;
+package com.mvplogin.module.login.presenter;
 
 import com.mvplogin.api.ApiClient;
 import com.mvplogin.listener.OnLoginListener;
-import com.mvplogin.module.LoginUser;
+import com.mvplogin.model.LoginUser;
+import com.mvplogin.module.login.LoginConstact;
 import com.mvplogin.utils.InputHelper;
-import com.mvplogin.view.ILoginView;
 
 /**
  * 功能
  */
 
-public class LoginPresenter implements ILoginPresenter , OnLoginListener{
+public class LoginPresenter implements LoginConstact.Presenter, OnLoginListener{
 
-    private ILoginView iLoginView;
+    private LoginConstact.View iLoginView;
     private ApiClient apiClient;
 
-    public LoginPresenter(ILoginView iLoginView) {
+    public LoginPresenter(LoginConstact.View iLoginView) {
         this.iLoginView = iLoginView;
         apiClient = ApiClient.getInstance();
     }

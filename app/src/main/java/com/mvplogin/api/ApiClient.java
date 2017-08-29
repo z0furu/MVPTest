@@ -6,7 +6,7 @@ import com.ihsanbal.logging.Level;
 import com.ihsanbal.logging.LoggingInterceptor;
 import com.mvplogin.BuildConfig;
 import com.mvplogin.listener.OnLoginListener;
-import com.mvplogin.module.LoginUser;
+import com.mvplogin.model.LoginUser;
 
 import okhttp3.OkHttpClient;
 import okhttp3.ResponseBody;

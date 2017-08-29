@@ -1,8 +1,7 @@
-package com.mvplogin.view;
+package com.mvplogin.module.login.view;
 
 import android.support.design.widget.TextInputEditText;
 import android.support.design.widget.TextInputLayout;
-import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
@@ -10,15 +9,14 @@ import android.widget.ProgressBar;
 
 import com.mvplogin.BaseActivity;
 import com.mvplogin.R;
-import com.mvplogin.listener.OnLoginListener;
-import com.mvplogin.module.LoginUser;
-import com.mvplogin.presenter.ILoginPresenter;
-import com.mvplogin.presenter.LoginPresenter;
+import com.mvplogin.model.LoginUser;
+import com.mvplogin.module.login.LoginConstact;
+import com.mvplogin.module.login.presenter.LoginPresenter;
 import com.mvplogin.utils.InputHelper;
 
 import es.dmoral.toasty.Toasty;
 
-public class LoginActivity extends BaseActivity implements View.OnClickListener, ILoginView {
+public class LoginActivity extends BaseActivity implements View.OnClickListener, LoginConstact.View {
 
     private static final String TAG = "LoginActivity";
 
@@ -28,7 +26,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
     private TextInputEditText edtAccount;
     private TextInputEditText edtPassword;
     private ProgressBar progressBar;
-    private ILoginPresenter iLoginPresenter;
+    private LoginConstact.Presenter iLoginPresenter;
 
 
     @Override

@@ -1,6 +1,6 @@
 package com.mvplogin.listener;
 
-import com.mvplogin.module.LoginUser;
+import com.mvplogin.model.LoginUser;
 
 /**
  * 功能

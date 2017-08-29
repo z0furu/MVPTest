@@ -14,7 +14,7 @@
         <activity android:name=".MainActivity">
 
         </activity>
-        <activity android:name=".view.LoginActivity">
+        <activity android:name=".module.login.view.LoginActivity">
             <!--<intent-filter>-->
                 <!--<action android:name="android.intent.action.VIEW"/>-->
                 <!--<category android:name="android.intent.category.DEFAULT"/>-->
