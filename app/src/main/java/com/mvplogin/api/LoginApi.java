@@ -1,5 +1,8 @@
 package com.mvplogin.api;
 
+import com.mvplogin.model.LoginUser;
+
+import io.reactivex.Observable;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 
@@ -15,7 +18,7 @@ public interface LoginApi {
 
 
     @GET("user")
-    Call<ResponseBody> login(
+    Observable<LoginUser> login(
            @Header("Authorization") String authorization
     );
 

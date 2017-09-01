@@ -5,8 +5,6 @@ import android.support.design.widget.TextInputLayout;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
-
-
 import com.mvplogin.BaseActivity;
 import com.mvplogin.R;
 import com.mvplogin.model.LoginUser;
@@ -16,9 +14,11 @@ import com.mvplogin.utils.InputHelper;
 
 import es.dmoral.toasty.Toasty;
 
-public class LoginActivity extends BaseActivity implements View.OnClickListener, LoginConstact.View {
+public class LoginActivity extends BaseActivity implements
+        View.OnClickListener, LoginConstact.View {
 
-    private static final String TAG = "LoginActivity";
+    private static final String TAG =
+            "LoginActivity";
 
     private Button btnLogin;
     private TextInputLayout txtInputAccount;
@@ -44,8 +44,6 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
         progressBar = findViewById(R.id.progressBar);
 
         iLoginPresenter = new LoginPresenter(this);
-
-
     }
 
     @Override
